@@ -2,11 +2,27 @@
 <html>
 	<head>
 		<title>Firebase Chatroom</title>
-		<script src="firebase_scripts.js"></script>
-		
 		<link rel="stylesheet" href="index.css">
 		
+		<!-- Paste your snipped from the firebase console Develop->"Add Firebase to your web app" button. -->
+		<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+			apiKey: "AIzaSyB2g0YxFrSUl4XbxR7y7ynkeRPP0NUdrCc",
+			authDomain: "code211-firebase-demo.firebaseapp.com",
+			databaseURL: "https://code211-firebase-demo.firebaseio.com",
+			projectId: "code211-firebase-demo",
+			storageBucket: "code211-firebase-demo.appspot.com",
+			messagingSenderId: "779838439601"
+		  };
+		  firebase.initializeApp(config);
+		</script>
+		<!-- End of pasted snippet-->
+		
+		<script src="firebase_scripts.js"></script>
 	</head>
+	
 	<body>
 		<div id="header">
 			<center>
@@ -15,8 +31,8 @@
 			</center>
 		</div>
 		<center id="content">
-			<div id="msgbox" style="border: 5px solid red; width: 60%; height:50%;">
-				<p>Loading...</p>
+			<div id="msgbox" style="overflow-y:scroll; border: 5px double red; width: 60%; height:300px;">
+				<p id="loadmsg">Loading...</p>
 			</div>
 			<p class="spacer"/>
 			<div id="sendbox">
