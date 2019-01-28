@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Firebase Chatroom</title>
+		<script src="firebase_scripts.js"></script>
+		
+		<link rel="stylesheet" href="index.css">
+		
+	</head>
+	<body>
+		<div id="header">
+			<center>
+				<img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png">
+				<h1>Firebase Chatroom Demo</h1>
+			</center>
+		</div>
+		<center id="content">
+			<div id="msgbox" style="border: 5px solid red; width: 60%; height:50%;">
+				<p>Loading...</p>
+			</div>
+			<p class="spacer"/>
+			<div id="sendbox">
+				Name :  <textarea id="name" placeholder="Username" rows="1" cols="10">Anonymous</textarea>
+				<textarea id="msg" placeholder="Your message here..." cols="50" autofocus></textarea>
+				<button type="submit" id="sendbutton" style="height=100%">Send</button>
+			</div>
+		</center>
+	</body>
+</html>
