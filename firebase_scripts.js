@@ -56,6 +56,8 @@ function sendMessage() {
 	}
 	else
 		alert("You can't send a message with an empty username and/or no message text.");
+	
+	$("#messagebox").val("");
 }
 
 function loadContent() {
