@@ -1,0 +1,36 @@
+.message {
+	border: 1px solid black;
+	font-family: monospace;
+	padding: 3px;
+}
+
+.messageRight {
+	
+}
+
+.messageLeft {
+	border: 1px dotted black;
+	color: gray;
+}
+
+#messages-outer {
+	overflow-y:scroll; 
+	border: 5px double red; 
+	width: 60%; 
+	height:300px;
+}
+
+#messages-inner {
+	
+}
+
+.font-effect-fire-animation {
+	font-size:50px; 
+	font-family:Righteous;
+}
+
+#sendbutton {
+	border: 2px solid orange; 
+	padding: 2px; 
+	cursor: pointer
+}

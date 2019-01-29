@@ -4,7 +4,8 @@
 		<title>Firebase Chatroom</title>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-		<link href="https://fonts.googleapis.com/css?family=Righteous&effect=fire-animation" rel="stylesheet"> <!-- Learn more about Font Effects here: https://developers.google.com/fonts/docs/getting_started#enabling_font_effects_beta -->
+		<link href="https://fonts.googleapis.com/css?family=Righteous&effect=fire-animation" rel="stylesheet"> 
+		<!-- Learn more about Font Effects here: https://developers.google.com/fonts/docs/getting_started#enabling_font_effects_beta -->
 		
 		<!-- Paste your snipped from the firebase console Develop->"Add Firebase to your web app" button. -->
 		<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
@@ -24,27 +25,29 @@
 		
 		
 		<script src="firebase_scripts.js"></script>
+		<link href="index.css" rel=stylesheet>
 	</head>
 	
 	<body>
 		<div id="header">
 			<center>
 				<img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png">
-				<h1 class="font-effect-fire-animation" style="font-size:50px; font-family:Righteous;">Firebase Chatroom Demo</h1>
+				<h1 class="font-effect-fire-animation">Firebase Chatroom Demo</h1>
 			</center>
 		</div>
 		<center id="content">
-			<div id="msgbox" style="overflow-y:scroll; border: 5px double red; width: 60%; height:300px;">
-				<p id="welcome-msg">Loading...</p>
-				<hr/>
-				<p id="load-msg">Loading...</p>
+		<p id="welcome-msg">Loading welcome message...</p>
+			<div id="messages-outer">
+				<div id="messages-inner" align="left">
+					<p id="messages-loading">Loading messages...</p>
+				</div>
 			</div>
 			<p class="spacer"/>
 			<div id="sendbox">
 				<span>Name :</span>
-				<textarea id="namebox" placeholder="Username" rows="1" cols="10">Anonymous</textarea>
-				<textarea id="msgbox" placeholder="Your message here..." cols="50" autofocus></textarea>
-				<a onclick="sendMessage()" target="_blank" style="border: 2px solid orange; padding: 2px; cursor: pointer">Send Message</a>
+				<textarea id="namebox" placeholder="Name Here" rows="2" cols="10">Anonymous</textarea>
+				<textarea id="messagebox" placeholder="Your message here..." cols="50" autofocus></textarea>
+				<a id="sendbutton" onclick="sendMessage()">Send Message</a>
 			</div>
 		</center>
 	</body>

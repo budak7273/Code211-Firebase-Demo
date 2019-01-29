@@ -9,12 +9,13 @@ var defaultDatabase = defaultApp.database();
 // Get a reference to the root of the Database. All references start at the root.
 var rootRef = defaultDatabase.ref();
 
-var date = new Date();
+var username = prompt("Please enter a username.");
 
 $(document).ready(function() {
 					loadWelcomeMessage();
 					loadContent(); 
-          console.log("Done loading")
+					$("#namebox").html(username);
+					console.log("Done with setup.")
 });
 
 /*function readOnce(reference) {
@@ -39,44 +40,38 @@ function loadWelcomeMessage() {
 
 function sendMessage() {
 	var name = $("#namebox").val();
-	var msg = $("#msgbox").val();
+	var msg  = $("#messagebox").val();
 	
-	console.log("Sending message from '" + name + "' with contents '" + msg + "'");
-	
-	rootRef.child("messages").child(name + "_" + date.getTime()).set({
-		username: name,
-		message: msg
-	});
-	
-	/*if(message !== '') {
+	if(msg.length > 0 && name.length > 0)
+	{
+		var time = new Date();
 		
+		console.log("Sending message from '" + name + "' with contents '" + msg + "'");
 		
+		rootRef.child("messages").child("" + time.getTime() + "_" + name).set({
+			username: name,
+			message: msg,
+			timestamp: time.getTime(),
+		});
 	}
 	else
-	{
-		console.log("Not sending message, no text to send.")
-	}*/
+		alert("You can't send a message with an empty username and/or no message text.");
 }
 
-
-
 function loadContent() {
-	
-	
-	
-  /*rootRef.child("leaderboarddata").on('value', function(snapshot) { //put listener on main div that rebuilds the table every time
-    document.getElementById("theScoreboard").innerHTML = ""; //wipe all previously created elements
-    var counter = 1;
-    snapshot.forEach(function(childSnapshot) {
-      console.log(childSnapshot);
-      console.log("Running in the for each loop " + counter);
-      var tempVar = document.createElement('h2');
-      console.log(tempVar);
-      tempVar.innerHTML = "Place " + counter + ": " + childSnapshot.val();
-      console.log(childSnapshot.val());
-      console.log(tempVar);
-      document.getElementById("theScoreboard").appendChild(tempVar);
-      counter++;
-    });
-  });*/
+	rootRef.child("messages/").on('value', function(snapshot) {
+		$("#messages-inner").html("");
+		snapshot.forEach(function(childSnapshot) {
+			var msgDate = new Date(childSnapshot.child("timestamp").val());
+			var newOuterMessage = $("<div class='message'></div>");
+			var newMessageLeft = $("<span class='messageLeft'></span>").text(
+				childSnapshot.child("username").val() + 
+				" (" + msgDate.toLocaleDateString("en-US", {hour: "numeric", minute:"2-digit"}) + ")"
+				);
+			var newMessageRight = $("<span class='messageRight'></span>").text(childSnapshot.child("message").val());
+			newOuterMessage.append(newMessageLeft, $("<span>   </span>"), newMessageRight);
+			$("#messages-inner").append(newOuterMessage);
+		});
+		$('#messages-outer').scrollTop($('#messages-outer')[0].scrollHeight);
+	});
 }
