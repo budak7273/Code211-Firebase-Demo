@@ -3,7 +3,7 @@
 	<head>
 		<title>Firebase Chatroom</title>
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 		<link href="https://fonts.googleapis.com/css?family=Righteous&effect=fire-animation" rel="stylesheet"> 
 		<!-- Learn more about Font Effects here: https://developers.google.com/fonts/docs/getting_started#enabling_font_effects_beta -->
 		
@@ -44,9 +44,8 @@
 			</div>
 			<p class="spacer"/>
 			<div id="sendbox">
-				<span>Name :</span>
-				<textarea id="namebox" placeholder="Name Here" rows="2" cols="10">Anonymous</textarea>
-				<textarea id="messagebox" placeholder="Your message here..." cols="50" autofocus></textarea>
+				<input id="namebox" placeholder="Name Here" value="Anonymous" rows="2" cols="10">
+				<input id="messagebox" placeholder="Your message here..." value="" cols="50" autofocus>
 				<a id="sendbutton" onclick="sendMessage()">Send Message</a>
 			</div>
 		</center>

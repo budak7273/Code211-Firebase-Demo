@@ -14,7 +14,7 @@ var username = prompt("Please enter a username.");
 $(document).ready(function() {
 					loadWelcomeMessage();
 					loadContent(); 
-					$("#namebox").html(username);
+					$("#namebox").val(username);
 					console.log("Done with setup.")
 });
 
